@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 28, 2018 12:27:22 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.sudip.hibernate.student.Student" table="STUDENT">
+		<id name="student_id" type="int">
+			<column name="STUDENT_ID" />
+			<generator class="native" />
+		</id>
+		<property name="student_name" type="java.lang.String">
+			<column name="STUDENT_NAME" />
+		</property>
+		<property name="student_address" type="java.lang.String">
+			<column name="STUDENT_ADDRESS" />
+		</property>
+		<property name="student_age" type="int">
+			<column name="STUDENT_AGE" />
+		</property>
+	</class>
+	<class name="com.sudip.hibernate.student.TA" table="TA">
+		<id name="student_id" type="int">
+			<column name="STUDENT_ID" />
+			<generator class="native" />
+		</id>
+
+		<property name="student_name" type="java.lang.String">
+			<column name="STUDENT_NAME" />
+		</property>
+		<property name="student_address" type="java.lang.String">
+			<column name="STUDENT_ADDRESS" />
+		</property>
+		<property name="student_age" type="int">
+			<column name="STUDENT_AGE" />
+		</property>
+		<property name="available_day" type="java.lang.String">
+			<column name="AVAILABLE_DAY"></column>
+		</property>
+		<set name="subjects" inverse="true" cascade="all">
+			<key>
+				<column name="TA" not-null="true" />
+			</key>
+			<one-to-many class="com.sudip.hibernate.subject.Subject" />
+		</set>
+
+
+	</class>
+	<class name="com.sudip.hibernate.student.RA" table="RA">
+		<id name="student_id" type="int">
+			<column name="STUDENT_ID" />
+			<generator class="native" />
+		</id>
+		<property name="student_name" type="java.lang.String">
+			<column name="STUDENT_NAME" />
+		</property>
+		<property name="student_address" type="java.lang.String">
+			<column name="STUDENT_ADDRESS" />
+		</property>
+		<property name="student_age" type="int">
+			<column name="STUDENT_AGE" />
+		</property>
+		<property name="research_area" type="java.lang.String">
+			<column name="RESEARCH_AREA" />
+		</property>
+		<property name="lab_name" type="java.lang.String">
+			<column name="LAB_NAME" />
+		</property>
+		<property name="supervisor" type="java.lang.String">
+			<column name="SUPERVISOR" />
+		</property>
+		<many-to-one name="lab_id" class="com.sudip.hibernate.lab.Lab"
+			fetch="join">
+			<column name="LAB_ID" unique="true" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

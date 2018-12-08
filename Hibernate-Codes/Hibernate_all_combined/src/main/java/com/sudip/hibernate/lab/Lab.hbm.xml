@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 28, 2018 2:10:56 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sudip.hibernate.lab.Lab" table="LAB">
+        <id name="lab_id" type="int">
+            <column name="LAB_ID" />
+            <generator class="native" />
+        </id>
+        <property name="lab_name" type="java.lang.String">
+            <column name="LAB_NAME" />
+        </property>
+        <property name="supervisor" type="java.lang.String">
+            <column name="SUPERVISOR" />
+        </property>
+    </class>
+</hibernate-mapping>

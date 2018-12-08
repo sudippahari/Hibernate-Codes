@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 28, 2018 2:11:26 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.sudip.hibernate.subject.Subject" table="SUBJECT">
+		<id name="subject_id" type="int">
+			<column name="SUBJECT_ID" />
+			<generator class="native" />
+		</id>
+		<property name="subject_name" type="java.lang.String">
+			<column name="SUBJECT_NAME" />
+		</property>
+		<property name="professor" type="java.lang.String">
+			<column name="PROFESSOR" />
+		</property>
+		<many-to-one name="ta" class="com.sudip.hibernate.student.TA">
+			<column name="TA" not-null="true"></column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>
